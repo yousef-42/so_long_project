@@ -1,0 +1,26 @@
+addr:
+
+    addr is the pointer to the raw pixel data of an MLX image.
+
+    MLX images store pixels in a contiguous memory block, row by row (sometimes called a framebuffer).
+
+    Each pixel’s data is stored as bytes (typically 4 bytes per pixel: 1 byte each for blue, green, red, and alpha).
+
+
+
+line_length:
+
+    line_length (or size_line) is the number of bytes in a single row of the image, not necessarily width * bytes_per_pixel.
+
+    Sometimes MLX pads rows to 4-byte boundaries, so line_length can be slightly larger than width * (bpp / 8).
+
+    You must use it when calculating the address of a pixel in a given row.
+
+
+bpp (bits per pixel):
+
+    bpp tells you how many bits are used for each pixel.
+
+    In MLX, this is often 32 (for 8 bits per channel RGBA).
+
+    To get bytes per pixel, divide by 8: bpp / 8.
